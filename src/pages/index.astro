@@ -2,7 +2,10 @@
 import Background from "../components/Background.astro";
 import Layout from "../components/Layout.astro";
 import Social from "../components/Social.astro";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
+import Map from "../components/Map.astro";
+import Content from "../components/Content.astro";
+import Gallery from "../components/Gallery.astro";
 
 import domekImg from "../images/domek.jpg";
 import domekLogoImg from "../images/raszowka-logo.png";
@@ -10,58 +13,97 @@ import kwiatLnuImg from "../images/kwat-lnu.jpeg";
 
 import bookingIcon from "../images/booking.svg";
 import facebookIcon from "../images/facebook.svg";
-import instagramIcon from "../images/instagram.svg";
+
+const optimizedBackground = await getImage({
+  src: domekImg,
+  format: "webp",
+  quality: 50,
+  width: 600,
+  height: 800,
+});
 ---
 
 <Layout title="Domek Raszówka">
-  <main>
-    <Background />
-    <div id="content">
-      <div class="header">
-        <div class="title">
-          <Image
-            src={domekLogoImg}
-            alt="Domek Raszówka - Raszów 1 w Karkonoszach - logo"
-            width={350}
-          />
-          <h1>Domek Raszówka</h1>
-        </div>
+  <Content className="title">
+    <Image
+      src={domekLogoImg}
+      alt="Domek Raszówka - Raszów 1 w Karkonoszach - 58-400 Kamienna Góra"
+      width={350}
+    />
+    <h1>Domek Raszówka</h1>
+  </Content>
 
-        <h2>
-          Zapraszamy do naszego urokliwego domku w Raszowie, położonego w sercu
-          Karkonoszy, gdzie natura spotyka się z komfortem.
-        </h2>
-        <div class="socials">
-          <Social
-            href="https://www.facebook.com/profile.php?id=100093296918860"
-            title="facebook"
-            icon={facebookIcon}
-          />
-          <Social href="#" title="booking" icon={bookingIcon} />
-          <Social href="#" title="instagram" icon={instagramIcon} />
-        </div>
-        <div class="logo">
-          <Image
-            src={domekImg}
-            alt="Domek Raszówka - Raszów 1 w Karkonoszach - zdjęcie domku"
-            width={800}
-            quality={75}
-            loading="eager"
-          />
-        </div>
-        <h3 style="font-weight: 400;">
-          Idealne miejsce na wypoczynek, oferujące spokój i bliskość górskich
-          atrakcji.
-        </h3>
-      </div>
+  <Content className="socials">
+    <Social
+      href="https://www.facebook.com/profile.php?id=100093296918860"
+      title="facebook"
+      icon={facebookIcon}
+    />
+    <Social
+      href="https://www.booking.com/Share-LdKOMz"
+      title="booking"
+      icon={bookingIcon}
+    />
+  </Content>
 
-      <div class="credits">
-        <Image
-          src={kwiatLnuImg}
-          alt="Domek Raszówka - Raszów 1 w Karkonoszach - logo"
-          width={kwiatLnuImg.width}
-        />
-      </div>
+  <link
+    rel="preload"
+    fetchpriority="high"
+    as="image"
+    href={optimizedBackground.src}
+    type="image/webp"
+  /></Layout
+>
+<Content className="hero">
+  <div
+    class="background"
+    style={`background-image: url(${optimizedBackground.src});`}
+  >
+    <div class="glass">
+      <h2>
+        Drewniany Domek Raszówka usytuowany na skraju wsi <span class="emp"
+          >Raszów</span
+        >, w pobliżu Rudawskiego Parku Krajobrazowego.
+        <br />
+        <br />
+        Miejsce ciche, piękne i wśród kojącej zmysły natury.
+        <br />
+        <br />
+        Doskonale wyposażony domek z przyjemnie urządzonym podwórkiem i miejscem
+        do grillowania.
+      </h2>
     </div>
-  </main>
-</Layout>
+  </div>
+</Content>
+
+<Content className="glass ">
+  <div class="long-text">
+    Z przytulnego tarasu wejdziemy wprost do przestronnego salonu, z dyskretnie
+    schowanym aneksem kuchennym. W salonie jest wygodna rozkładana kanapa,
+    telewizor i stół z krzesłami, przy którym wygodnie zjecie posiłek i pogracie
+    w planszówki. Aneks kuchenny wyposażony jest w naczynia i wszystkie
+    niezbędne sprzęty. Na parterze usytuowana jest również łazienka z kabiną
+    prysznicową. Na piętrze znajdziemy dwie wygodne sypialnie urządzone z myślą
+    o rodzinach. Pierwsza sypialnia wyposażona jest w wygodne, duże łóżko
+    małżeńskie i możemy z niej wyjść wprost na taras na piętrze, i podziwiać z
+    niego rozpościerający się piękny widok na góry. W drugiej sypialni
+    umieściliśmy dwa pojedyncze łóżka.
+  </div>
+</Content>
+
+<Content className="gallery" width="100%">
+  <Gallery />
+</Content>
+
+<div class="map">
+  <Map />
+</div>
+
+<Content className="credits">
+  <Image
+    src={kwiatLnuImg}
+    alt="Domek Raszówka - Raszów 1 w Karkonoszach - kwiat lnu logo"
+    width={kwiatLnuImg.width}
+  />
+</Content>
+<br />

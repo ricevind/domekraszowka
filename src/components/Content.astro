@@ -1,0 +1,17 @@
+---
+type Props = {
+  maxWidth?: string;
+  width?: string;
+  className?: string;
+};
+
+const { maxWidth = "800px", width = "100%", className } = Astro.props;
+---
+
+<div
+  style={`display: flex; justify-content: center; width: 100%;  padding: 0 2%; margin-top: 3%;`}
+>
+  <div class={className} style={` max-width: ${maxWidth}; width=${width}; `}>
+    <slot />
+  </div>
+</div>
