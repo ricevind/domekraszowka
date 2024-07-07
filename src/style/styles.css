@@ -108,7 +108,6 @@ html {
   display: flex;
   gap: 2ch;
   justify-content: center;
-  margin-top: 3%;
 }
 
 .long-text {
@@ -116,6 +115,7 @@ html {
   padding: 3%;
   line-height: 1.6;
   letter-spacing: 0.5px;
+  text-align: justify;
 }
 
 .credits {

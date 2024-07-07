@@ -33,7 +33,7 @@ const prevIndex = (index: number) =>
       </a>
 
       <a href={`#-${index}`} class="lightbox-a" id={`image-${index}`}>
-        <Image src={image()} alt="" loading="eager" />
+        <Image src={image()} alt="" loading="eager" decoding="sync" />
       </a>
     </div>
   ))

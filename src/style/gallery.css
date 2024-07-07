@@ -35,7 +35,8 @@ li {
   max-height: 100%;
   background-color: rgba(0, 0, 0, 0.75);
   z-index: 999;
-  display: none;
+  display: flex;
+  visibility: hidden;
 }
 
 .gallery .lightbox .prev,
@@ -70,6 +71,7 @@ li {
 .gallery .lightbox:has(:target) {
   outline: none;
   display: flex;
+  visibility: visible;
   justify-content: center;
 }
 
