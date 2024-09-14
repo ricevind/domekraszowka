@@ -4,17 +4,7 @@
 
 :root {
   --main-family: "Poppins", sans-serif;
-  --color-bg: linear-gradient(
-    180deg,
-    var(--green-050) 0%,
-    var(--green-200) 100%
-  );
-
-  /* Controls the blob blur gradient colors within the main tag's svg */
-  --top-right-blur-1: var(--green-500);
-  --top-right-blur-2: var(--yellow-500);
-  --bttm-left-blur-1: var(--red-500);
-  --bttm-left-blur-2: var(--purple-500);
+  --color-bg: var(--yellow-050);
 
   --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
   --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
@@ -60,6 +50,7 @@ html {
   justify-content: center;
   gap: 2ch;
   padding: 0 2%;
+  color: var(--grey-700);
 }
 
 .title img {
@@ -77,7 +68,7 @@ html {
 
 .hero .background {
   border-radius: 16px;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 4.2;
   background-size: cover;
 
   padding: 3%;
@@ -88,19 +79,19 @@ html {
 }
 
 .glass {
-  background: rgba(194, 216, 196, 0.69);
+  background: rgba(179, 197, 235, 0.414);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(8.3px);
   -webkit-backdrop-filter: blur(8.3px);
-  border: 1px solid rgba(194, 216, 196, 0.52);
+  border: 1px solid rgba(179, 197, 235, 0.52);
 }
 
 .hero h2 {
   line-height: 34px;
   font-weight: 500;
   text-align: center;
-  color: var(--color-text-light);
+  color: var(--grey-900);
   font-size: var(--font-size-lg);
 }
 
@@ -137,5 +128,5 @@ html {
 
 .emp {
   font-weight: 700;
-  color: var(--green-500);
+  color: var(--grey-600);
 }

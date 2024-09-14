@@ -16,13 +16,13 @@ import facebookIcon from "../images/facebook.svg";
 const optimizedBackground = await getImage({
   src: domekImg,
   format: "webp",
-  quality: 50,
+  quality: 100,
   width: 600,
   height: 800,
 });
 ---
 
-<Layout title="Domek Raszówka">
+<Layout title="Domek Raszówka" heroImageSrc={optimizedBackground.src}>
   <Content className="title">
     <Image
       src={domekLogoImg}
@@ -45,64 +45,58 @@ const optimizedBackground = await getImage({
     />
   </Content>
 
-  <link
-    rel="preload"
-    fetchpriority="high"
-    as="image"
-    href={optimizedBackground.src}
-    type="image/webp"
-  /></Layout
->
-<Content className="hero">
-  <div
-    class="background"
-    style={`background-image: url(${optimizedBackground.src});`}
-  >
-    <div class="glass">
-      <h2>
-        Drewniany Domek Raszówka usytuowany na skraju wsi <span class="emp"
-          >Raszów</span
-        >, w pobliżu Rudawskiego Parku Krajobrazowego.
-        <br />
-        <br />
-        Miejsce ciche, piękne i wśród kojącej zmysły natury.
-        <br />
-        <br />
-        Doskonale wyposażony domek z przyjemnie urządzonym podwórkiem i miejscem
-        do grillowania.
-      </h2>
+  <Content className="hero">
+    <div
+      class="background"
+      style={`background-image: url(${optimizedBackground.src});`}
+    >
+      <div class="glass">
+        <h2>
+          Drewniany Domek Raszówka usytuowany na skraju <span class="emp"
+            >wsi&nbsp;Raszów</span
+          >, w pobliżu Rudawskiego Parku Krajobrazowego.
+          <br />
+          <br />
+          Miejsce ciche, piękne i wśród kojącej zmysły natury.
+          <br />
+          <br />
+          Doskonale wyposażony domek z przyjemnie urządzonym podwórkiem i miejscem
+          do grillowania.
+        </h2>
+      </div>
     </div>
+  </Content>
+
+  <Content className="gallery" width="100%">
+    <Gallery />
+  </Content>
+
+  <Content className="glass ">
+    <div class="long-text">
+      Z przytulnego tarasu wejdziemy wprost do przestronnego salonu, z
+      dyskretnie schowanym aneksem kuchennym. W salonie jest wygodna rozkładana
+      kanapa, telewizor i stół z krzesłami, przy którym wygodnie zjecie posiłek
+      i pogracie w planszówki. Aneks kuchenny wyposażony jest w naczynia i
+      wszystkie niezbędne sprzęty. Na parterze usytuowana jest również łazienka
+      z kabiną prysznicową. Na piętrze znajdziemy dwie wygodne sypialnie
+      urządzone z myślą o rodzinach. Pierwsza sypialnia wyposażona jest w
+      wygodne, duże łóżko małżeńskie i możemy z niej wyjść wprost na taras na
+      piętrze, i podziwiać z niego rozpościerający się piękny widok na góry. W
+      drugiej sypialni umieściliśmy dwa pojedyncze łóżka.
+    </div>
+  </Content>
+
+  <div class="map">
+    <Map />
   </div>
-</Content>
 
-<Content className="gallery" width="100%">
-  <Gallery />
-</Content>
-
-<Content className="glass ">
-  <div class="long-text">
-    Z przytulnego tarasu wejdziemy wprost do przestronnego salonu, z dyskretnie
-    schowanym aneksem kuchennym. W salonie jest wygodna rozkładana kanapa,
-    telewizor i stół z krzesłami, przy którym wygodnie zjecie posiłek i pogracie
-    w planszówki. Aneks kuchenny wyposażony jest w naczynia i wszystkie
-    niezbędne sprzęty. Na parterze usytuowana jest również łazienka z kabiną
-    prysznicową. Na piętrze znajdziemy dwie wygodne sypialnie urządzone z myślą
-    o rodzinach. Pierwsza sypialnia wyposażona jest w wygodne, duże łóżko
-    małżeńskie i możemy z niej wyjść wprost na taras na piętrze, i podziwiać z
-    niego rozpościerający się piękny widok na góry. W drugiej sypialni
-    umieściliśmy dwa pojedyncze łóżka.
-  </div>
-</Content>
-
-<div class="map">
-  <Map />
-</div>
-
-<Content className="credits">
-  <Image
-    src={kwiatLnuImg}
-    alt="Domek Raszówka - Raszów 1 w Karkonoszach - kwiat lnu logo"
-    width={kwiatLnuImg.width}
-  />
-</Content>
-<br />
+  <Content className="credits">
+    <Image
+      loading={"lazy"}
+      src={kwiatLnuImg}
+      alt="Domek Raszówka - Raszów 1 w Karkonoszach - kwiat lnu logo"
+      width={kwiatLnuImg.width}
+    />
+  </Content>
+  <br />
+</Layout>
